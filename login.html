@@ -7,32 +7,46 @@
 </head>
 <body>
 <div class="Wrapper">
-    <form action ="">
+    <form onsubmit="return func()">
         <h1>Login</h1>
         
         <div class="input-box">
-            <input type="text" placeholder="Username" required>
+            <input type="text" id="username" placeholder="Username" required> <!-- Added ID -->
             <i class='bx bx-user'></i>
         </div>
         
         <div class="input-box">
-            <input type="Password" placeholder="Password" required>
+            <input type="password" id="password" placeholder="Password" required> <!-- Added ID -->
             <i class='bx bxs-lock-alt'></i>
         </div>
        
         <div class="remember-forgot">
             <label><input type="checkbox">Remember me</label>
-            <a href="forgotpasswrod.html">Forgot Password?</a>
+            <a href="forgotpassword.html">Forgot Password?</a>
         </div>
 
         <button type="submit" class="btn">Login</button>
 
         <div class="register-link">
-            <p>Don't have an account? <a href="registration.html">
-                Register
-            </a></p>
+            <p>Don't have an account? <a href="registration.html">Register</a></p>
         </div>
     </form>
 </div>
+<script>
+    function func(){
+        var email = document.getElementById("username").value;//just some js on top
+        var password = document.getElementById("password").value;
+
+        if(email === 'user1' && password === 'password123'){
+            alert("Success!");
+            window.location.href = "budget.html"; // Redirects to budget.html
+            return false; // Prevents form from actually submitting
+        }
+        else{
+            alert("Invalid username or password");
+            return false; // Prevents form from actually submitting
+        }
+    }
+</script>
 </body>
 </html>
