@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        table, th, td {
-          border:1px solid black;
-        }
-        </style>
     <head>
         <title>Budget</title>
-        <body>
-            <div class = "Wrapper">
-                <form>
-                    <h1>What's your budget</h1>
-                    <div>
-                        <label>My budget is:</label>
-                        <input type="text">
-                    </div>
-                    <h2>Enter your expenses:</h2>
-                    <table style="Width: 100%">
-                        <tr>
-                            <th>Payment</th>
-                            <th>Category</th>
-                            <th>Date</th>
-                        </tr>
-                        <tr>
-                           <td>decimal number</td>
-                           <td>word</td>
-                           <td>Date of purchase</td>
-                        </tr>
-                    </table>
-                    <br>
-                    <div>
-                        <input type="reset">
-                    </div>
-                    <br>
-                    <div>
-                        <input type="submit">
-                    </div>
-                    <h2>Summary of expenses</h2>
-                    <div>
-                        <label>Budget:</label>
-                    </div>
-                    <div>
-                        <label>Total of all expenses by category:</label>
-                    </div>
-                    <div>
-                        <label>Total:</label>
-                    </div>
-                    <div>
-                        <label>Am I over budget?:</label>
-                    </div>
-                </form>
-            </div>
-        </body>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+            }
+            table {
+                width: 100%;
+            }
+        </style>
     </head>
+    <body>
+        <div class="Wrapper">
+            <form>
+                <h1>What's your budget</h1>
+                <div>
+                    <label>My budget is:</label>
+                    <input type="text" placeholder="Enter budget amount">
+                </div>
+                
+                <h2>Enter your expenses:</h2>
+                <table>
+                    <tr>
+                        <th>Payment</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Enter amount" name="payment"></td>
+                        <td><input type="text" placeholder="Enter category" name="category"></td>
+                        <td><input type="date" name="date"></td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </table>
+                
+                <br>
+                <div>
+                    <input type="reset" value="Reset">
+                </div>
+                <br>
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+                
+                <h2>Summary of expenses</h2>
+                <div>
+                    <label>Budget:</label>
+                    <input type="text" placeholder="Total budget" readonly>
+                </div>
+                <div>
+                    <label>Total of all expenses by category:</label>
+                    <input type="text" placeholder="Total by category" readonly>
+                </div>
+                <div>
+                    <label>Total:</label>
+                    <input type="text" placeholder="Total expenses" readonly>
+                </div>
+                <div>
+                    <label>Am I over budget?:</label>
+                    <input type="text" placeholder="Yes/No" readonly>
+                </div>
+            </form>
+        </div>
+    </body>
 </html>
