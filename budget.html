@@ -1,56 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        table, th, td {
-          border:1px solid black;
-        }
-        </style>
     <head>
         <title>Budget</title>
-        <body>
-            <div class = "Wrapper">
-                <form>
-                    <h1>What's your budget</h1>
-                    <div>
-                        <label>My budget is:</label>
-                        <input type="text">
-                    </div>
-                    <h2>Enter your expenses:</h2>
-                    <table style="Width: 100%">
-                        <tr>
-                            <th>Payment</th>
-                            <th>Category</th>
-                            <th>Date</th>
-                        </tr>
-                        <tr>
-                           <td>decimal number</td>
-                           <td>word</td>
-                           <td>Date of purchase</td>
-                        </tr>
-                    </table>
-                    <br>
-                    <div>
-                        <input type="reset">
-                    </div>
-                    <br>
-                    <div>
-                        <input type="submit">
-                    </div>
-                    <h2>Summary of expenses</h2>
-                    <div>
-                        <label>Budget:</label>
-                    </div>
-                    <div>
-                        <label>Total of all expenses by category:</label>
-                    </div>
-                    <div>
-                        <label>Total:</label>
-                    </div>
-                    <div>
-                        <label>Am I over budget?:</label>
-                    </div>
-                </form>
-            </div>
-        </body>
+        <link rel="stylesheet" href="budget.css">
+        <style>
+            table, th, td {
+                border: 1px solid black;
+            }
+            table {
+                width: 100%;
+            }
+            .delete-btn {
+                background-color: red;
+                color: white;
+                border: none;
+                padding: 5px;
+                cursor: pointer;
+                border-radius: 3px;
+            }
+            .add-btn {
+                background-color: green;
+                color: white;
+                border: none;
+                padding: 8px;
+                cursor: pointer;
+                border-radius: 3px;
+                margin-top: 10px;
+            }
+        </style>
     </head>
+    <body>
+        <div class="Wrapper">
+            <form action="summary.html" method="GET">
+                <h1>What's your budget</h1>
+                <div>
+                    <label>My budget is:</label>
+                    <input type="text" placeholder="Enter budget amount" name="budget">
+                </div>
+                
+                <h2>Enter your expenses:</h2>
+                <table id="expenseTable">
+                    <tr>
+                        <th>Payment</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Enter amount" name="payment"></td>
+                        <td><input type="text" placeholder="Enter category" name="category"></td>
+                        <td><input type="date" name="date"></td>
+                        <td><button type="button" class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+                    </tr>
+                </table>
+                
+                <button type="button" class="add-btn" onclick="addRow()">Add Expense</button>
+                
+                <br><br>
+                <div>
+                    <input type="reset" value="Reset">
+                </div>
+                <br>
+                <div>
+                    <input type="submit" value="Submit"> <!-- This will now submit to summary.html -->
+                </div>
+            </form>
+        </div>
+
+        <script>
+            // Function to delete a row from the expense table
+            function deleteRow(button) {
+                var row = button.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+
+            // Function to add a new row to the expense table
+            function addRow() {
+                var table = document.getElementById("expenseTable");
+                var newRow = table.insertRow();
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
+                var cell4 = newRow.insertCell(3);
+
+                cell1.innerHTML = '<input type="text" placeholder="Enter amount" name="payment">';
+                cell2.innerHTML = '<input type="text" placeholder="Enter category" name="category">';
+                cell3.innerHTML = '<input type="date" name="date">';
+                cell4.innerHTML = '<button type="button" class="delete-btn" onclick="deleteRow(this)">Delete</button>';
+            }
+        </script>
+    </body>
 </html>

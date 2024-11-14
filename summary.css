@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue; /* Light background color */
+    margin: 0;
+    padding: 0;
+}
+
+/* Wrapper for the summary section */
+.summary-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: blue; /* White background for the summary box */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for the box */
+}
+
+/* Heading styles */
+h1 {
+    text-align: center;
+    color: white; /* Dark gray text */
+    margin-bottom: 20px;
+}
+
+/* Label and input field for the summary */
+.summary-wrapper label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+    color: white; /* Dark gray for labels */
+}
+
+/* Input fields for displaying values */
+.summary-wrapper input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd; /* Light gray border */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Submit and Reset buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
