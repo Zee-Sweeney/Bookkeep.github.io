@@ -6,8 +6,8 @@
 }
 
 body {
-    background-color: lightskyblue; /* Light gray background */
-    color: #333; /* Default text color */
+    background-color: lightskyblue; 
+    color: #333; 
     font-size: 16px;
 }
 
@@ -19,8 +19,8 @@ nav {
 }
 
 .home-button {
-    background-color: darkblue; /* Blue background */
-    color: white; /* White text */
+    background-color: darkblue; 
+    color: white; 
     border: none;
     border-radius: 50px; /* Fully rounded for a bubble shape */
     padding: 15px 30px;
@@ -33,20 +33,20 @@ nav {
 }
 
 .home-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.1); /* Slightly enlarge the button on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow effect */
+    background-color: #0056b3; 
+    transform: scale(1.1); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
 /* Main content styling */
 header, section {
-    background-color: darkblue; /* Blue background */
-    color: white; /* White text */
+    background-color: darkblue; 
+    color: white; 
     margin: 20px auto;
     padding: 20px;
-    border-radius: 15px; /* Rounded corners for the bubble effect */
-    max-width: 900px; /* Restrict section width for readability */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for the bubble */
+    border-radius: 15px; 
+    max-width: 900px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     text-align: center;
 }
 
@@ -74,7 +74,7 @@ header p, section p {
 }
 
 .card {
-    background-color: white; /* Cards should stand out from the blue background */
+    background-color: white;
     color: #333;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -84,7 +84,7 @@ header p, section p {
 }
 
 .card:hover {
-    transform: translateY(-10px); /* Lift card on hover */
+    transform: translateY(-10px); 
 }
 
 .card img {
