@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .summary-wrapper {
     width: 100%;
     max-width: 800px;
@@ -17,17 +18,20 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 h1 {
     text-align: center;
     color: white; 
     margin-bottom: 20px;
 }
+
 .summary-wrapper label {
     display: block;
     margin: 10px 0;
     font-weight: bold;
     color: white; 
 }
+
 .summary-wrapper input[type="text"] {
     width: 80%; /* Make inputs take up most of the width */
     padding: 10px;
@@ -37,6 +41,7 @@ h1 {
     font-size: 16px;
     text-align: center; /* Center the text inside input fields */
 }
+
 .back-btn {
     display: inline-block;
     background-color: #4CAF50;
@@ -84,6 +89,7 @@ h1 {
     transform: scale(1.1); 
     cursor: pointer;
 }
+
 #categorySummary {
     text-align: left;
     width: 80%;
@@ -93,4 +99,29 @@ h1 {
     margin-top: 10px; 
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.date-range {
+    width: 80%; 
+    padding: 15px;
+    background-color: white; 
+    color: black; /* Black text */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.date-range label {
+    font-size: 18px;
+    color: white;
+}
+
+#dateRangeText {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd; 
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    background-color: white;
+    color: black;
 }
