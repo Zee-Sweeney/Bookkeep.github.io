@@ -4,56 +4,82 @@ body {
     margin: 0;
     padding: 0;
 }
-
-/* Wrapper for the summary section */
 .summary-wrapper {
     width: 100%;
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
-    background-color: blue; /* White background for the summary box */
+    background-color: darkblue;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
-
-/* Heading styles */
 h1 {
     text-align: center;
-    color: white; /* Dark gray text */
+    color: white; 
     margin-bottom: 20px;
 }
-
-/* Label and input field for the summary */
 .summary-wrapper label {
     display: block;
     margin: 10px 0;
     font-weight: bold;
-    color: white; /* Dark gray for labels */
+    color: white; 
 }
-
-/* Input fields for displaying values */
 .summary-wrapper input[type="text"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 2px solid #ddd; /* Light gray border */
+    border: 2px solid #ddd; 
     border-radius: 5px;
     font-size: 16px;
 }
-
-/* Submit and Reset buttons */
-button {
+.back-btn {
+    display: inline-block;
     background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    color: white; 
+    padding: 10px 20px; 
     font-size: 16px;
-    width: 100%;
-    margin-top: 10px;
+    border: none; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    cursor: pointer; 
+    text-align: center; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow */
+    transition: transform 0.2s, background-color 0.3s; /* Add hover effects */
+    margin-top: 20px;
 }
 
-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+.back-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px); 
+}
+
+.back-btn:active {
+    transform: translateY(1px);
+}
+
+.logout-btn {
+    position: absolute;
+    top: 20px; 
+    right: 20px;
+    background-color: darkblue; 
+    color: white; 
+    padding: 10px 20px; 
+    border-radius: 50px; 
+    text-align: center; 
+    text-decoration: none; 
+    font-size: 16px;
+    font-weight: bold; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s, transform 0.3s; 
+    z-index: 10; 
+}
+
+.logout-btn:hover {
+    background-color: red; 
+    transform: scale(1.1); 
+    cursor: pointer;
+}
+#categorySummary {
+    color: white;
+    font-size: 16px;
 }
