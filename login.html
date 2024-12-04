@@ -9,14 +9,14 @@
 <div class="Wrapper">
     <form onsubmit="return func()">
         <h1>Login</h1>
-        
+        <a href="homepage.html" class="home-btn">Home</a>
         <div class="input-box">
-            <input type="text" id="username" placeholder="Username" required>
+            <input type="text" id="username" placeholder="Username" required> 
             <i class='bx bx-user'></i>
         </div>
         
         <div class="input-box">
-            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="password" placeholder="Password" required> 
             <i class='bx bxs-lock-alt'></i>
         </div>
        
@@ -37,7 +37,7 @@
         var email = document.getElementById("username").value;//just some js on top
         var password = document.getElementById("password").value;
 
-        if(email === 'user1' && password === 'password123'){//hard coded for now
+        if(email === 'user1' && password === 'password123'){
             alert("Success!");
             window.location.href = "budget.html"; // Redirects to budget.html
             return false; // Prevents form from actually submitting
