@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: lightblue; /* Light background color */
+    background-color: lightblue;
     margin: 0;
     padding: 0;
 }
@@ -12,6 +12,10 @@ body {
     background-color: darkblue;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 h1 {
     text-align: center;
@@ -25,12 +29,13 @@ h1 {
     color: white; 
 }
 .summary-wrapper input[type="text"] {
-    width: 100%;
+    width: 80%; /* Make inputs take up most of the width */
     padding: 10px;
     margin-bottom: 15px;
     border: 2px solid #ddd; 
     border-radius: 5px;
     font-size: 16px;
+    text-align: center; /* Center the text inside input fields */
 }
 .back-btn {
     display: inline-block;
@@ -80,6 +85,12 @@ h1 {
     cursor: pointer;
 }
 #categorySummary {
-    color: white;
-    font-size: 16px;
+    text-align: left;
+    width: 80%;
+    padding: 10px; 
+    background-color: white;
+    color: black; 
+    margin-top: 10px; 
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
