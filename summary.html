@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Summary of Expenses</title>
     <link rel="stylesheet" href="summary.css">
 </head>
 <body>
-
     <div class="summary-wrapper">
         <h1>Summary of Expenses</h1>
         <div>
             <label for="budgetSummary">Budget:</label>
             <input type="text" id="budgetSummary" placeholder="Total budget" readonly>
         </div>
+        
         <div>
             <label for="categorySummary">Total of all expenses by category:</label>
-            <input type="text" id="categorySummary" placeholder="Total by category" readonly>
+            <div id="categorySummary"></div> 
         </div>
         <div>
             <label for="totalSummary">Total Expenses:</label>
@@ -24,8 +26,9 @@
             <label for="overBudgetSummary">Am I over budget?</label>
             <input type="text" id="overBudgetSummary" placeholder="Yes/No" readonly>
         </div>
-        <button type="button">Back to Budget</button> <!-- Example button -->
+        <div id="budgetMessage"></div> 
+        <a href="budget.html" class="back-btn">Back to Budget</a>
+        <a href="login.html" class="logout-btn">Logout</a>
     </div>
-
 </body>
 </html>
