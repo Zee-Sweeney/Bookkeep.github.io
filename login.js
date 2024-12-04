@@ -1,4 +1,23 @@
-function func(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function login(){
     var email = document.getElementById("username").value;//just some js on top
     var password = document.getElementById("password").value;
 

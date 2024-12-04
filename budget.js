@@ -13,14 +13,14 @@ function addRow() {
     var cell3 = newRow.insertCell(2);
     var cell4 = newRow.insertCell(3);
 
-    cell1.innerHTML = '<input type="text" placeholder="Enter amount" name="payment">';
-    cell2.innerHTML = '<input type="text" placeholder="Enter category" name="category">';
-    cell3.innerHTML = '<input type="date" name="date">';
+    cell1.innerHTML = '<input type="text" placeholder="Enter amount" id="payment">';
+    cell2.innerHTML = '<input type="text" placeholder="Enter category" id="category">';
+    cell3.innerHTML = '<input type="date" id="Date">';
     cell4.innerHTML = '<button type="button" class="delete-btn" onclick="deleteRow(this)">Delete</button>';
 }
 
 function addAmount(){
-    const amounts = document.querySelector('.payment');
+    const amounts = document.getElementById('payment').value;
     let total = 0;
 
     amounts.forEach(function(input) {
