@@ -3,8 +3,6 @@ body {
     background-color: lightblue;
     padding: 20px;
 }
-
-/* Wrapper for each "bubble" section */
 .Wrapper {
     max-width: 800px;
     margin: 20px auto;
@@ -13,8 +11,6 @@ body {
     border-radius: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
-
-/* Each section with rounded bubble design */
 h1, h2 {
     text-align: center;
     color: white;
@@ -27,23 +23,15 @@ section {
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-/* Budget section bubble */
 section.budget-section {
     background-color: #e0f7fa; 
 }
-
-/* Expenses section bubble */
 section.expenses-section {
     background-color: #ffeb3b;
 }
-
-/* Summary section bubble */
 section.summary-section {
     background-color: #c8e6c9; 
 }
-
-/* Styling for input fields */
 input[type="text"], input[type="date"] {
     width: 100%;
     padding: 8px;
@@ -57,7 +45,6 @@ label {
     font-size: 16px;
     font-weight: bold;
 }
-/* Styling for buttons */
 button {
     background-color: #4CAF50;
     color: white;
@@ -71,8 +58,6 @@ button {
 button:hover {
     background-color: #45a049;
 }
-
-/* Reset and submit buttons */
 input[type="reset"], input[type="submit"] {
     padding: 10px;
     background-color: grey;
@@ -85,8 +70,6 @@ input[type="reset"], input[type="submit"] {
 input[type="reset"]:hover, input[type="submit"]:hover {
     background-color: grey;
 }
-
-/* Table and row design*/
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -103,8 +86,6 @@ th {
     background-color: #4CAF50;
     color: white;
 }
-
-/* Buttons inside table */
 .delete-btn {
     background-color: red;
     color: white;
