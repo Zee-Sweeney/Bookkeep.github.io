@@ -45,14 +45,11 @@
     </div>
 
     <script>
-        // Function to delete a row from the expense table
         function deleteRow(button) {
             var row = button.parentNode.parentNode;
             row.parentNode.removeChild(row);
-            saveFormData();  // Save the updated data after row deletion
+            saveFormData();
         }
-
-        // Function to add a new row to the expense table
         function addRow() {
             var table = document.getElementById("expenseTable");
             var newRow = table.insertRow();
@@ -65,10 +62,8 @@
             cell2.innerHTML = '<input type="text" placeholder="Enter category" name="category[]">';
             cell3.innerHTML = '<input type="date" name="date[]">';
             cell4.innerHTML = '<button type="button" class="delete-btn" onclick="deleteRow(this)">Delete</button>';
-            saveFormData();  // Save the updated data after adding a row
+            saveFormData();  
         }
-
-        // Function to save form data to localStorage
         function saveFormData() {
             var budget = document.getElementById('budgetInput').value;
             var payments = [];
@@ -87,8 +82,6 @@
                     dates.push(date);
                 }
             }
-
-            // Save the form data to localStorage
             localStorage.setItem('budgetData', JSON.stringify({
                 budget: budget,
                 payments: payments,
@@ -96,21 +89,15 @@
                 dates: dates
             }));
         }
-
-        // Function to load saved form data from localStorage
         function loadFormData() {
             var savedData = JSON.parse(localStorage.getItem('budgetData'));
             if (savedData) {
                 document.getElementById('budgetInput').value = savedData.budget;
                 var table = document.getElementById("expenseTable");
-
-                // Clear existing rows
                 var rows = table.getElementsByTagName('tr');
                 while (rows.length > 1) {
                     table.deleteRow(1);
                 }
-
-                // Populate the table with saved data
                 for (var i = 0; i < savedData.payments.length; i++) {
                     addRow();
                     table.rows[i + 1].cells[0].getElementsByTagName('input')[0].value = savedData.payments[i];
@@ -119,20 +106,12 @@
                 }
             }
         }
-
-        // Load the saved data when the page is loaded
         window.onload = function() {
             loadFormData();
         };
-
-        // Handle form submission and send data to summary.html via query parameters
         document.getElementById('budgetForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
-            // Get the budget input
             var budget = document.getElementById('budgetInput').value;
-
-            // Get all expenses
             var payments = [];
             var categories = [];
             var dates = [];
@@ -146,25 +125,15 @@
                 if (payment && category && date) {
                     payments.push(payment);
                     categories.push(category);
-                    dates.push(date); // Collect the dates
+                    dates.push(date);
                 }
             }
-
-            // Determine the earliest and latest dates
             var earliestDate = dates.length ? new Date(Math.min(...dates.map(d => new Date(d)))) : null;
             var latestDate = dates.length ? new Date(Math.max(...dates.map(d => new Date(d)))) : null;
-
-            // Format the dates as strings
             var formattedEarliestDate = earliestDate ? earliestDate.toISOString().split('T')[0] : 'N/A';
             var formattedLatestDate = latestDate ? latestDate.toISOString().split('T')[0] : 'N/A';
-
-            //query string
             var queryString = `budget=${budget}&payments=${payments.join(',')}&categories=${categories.join(',')}&startDate=${formattedEarliestDate}&endDate=${formattedLatestDate}`;
-
-            // Redirect to summary.html with query parameters
             window.location.href = 'summary.html?' + queryString;
-
-            // Save the form data
             saveFormData();
         });
     </script>
