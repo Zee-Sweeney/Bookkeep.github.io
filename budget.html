@@ -35,7 +35,7 @@
                 <h1>What's your budget</h1>
                 <div>
                     <label>My budget is:</label>
-                    <input type="text" placeholder="Enter budget amount" id="budget">
+                    <input type="text" placeholder="Enter budget amount" id="budget" name="budget">
                 </div>
                 
                 <h2>Enter your expenses:</h2>
@@ -49,7 +49,7 @@
                     <tr>
                         <td><input type="text" placeholder="Enter amount" id="payment"></td>
                         <td><input type="text" placeholder="Enter category" id="category"></td>
-                        <td><input type="date" id="Date"></td>
+                        <td><input type="date" id="date-input" name="date-input"></td>
                         <td><button type="button" class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
                     </tr>
                 </table>
@@ -62,7 +62,7 @@
                 </div>
                 <br>
                 <div>
-                    <input type="submit" value="Submit"> <!-- This will now submit to summary.html -->
+                    <input type="submit" value="Submit" > <!-- This will now submit to summary.html -->
                 </div>
             </form>
         </div>
