@@ -6,7 +6,6 @@
     <title>Summary of Expenses</title>
     <link rel="stylesheet" href="summary.css">
     <style>
-        /* Toast Notification Styles usually appears for 3-5 seconds*/
         .toast {
             position: fixed;
             bottom: 20px;
@@ -20,7 +19,7 @@
             z-index: 1000;
         }
         .toast.success {
-            background-color: blue; /* Green for success */
+            background-color: blue; 
         }
         .toast.show {
             display: block;
@@ -61,25 +60,17 @@
         <a href="budget.html" class="back-btn">Back to Budget</a>
         <a href="login.html" class="logout-btn">Logout</a>
     </div>
-
-    <!-- Toast Notification -->
     <div class="toast" id="toastNotification"></div>
-
     <script>
         window.onload = function() {
-            // Get the URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             const budget = parseFloat(urlParams.get('budget')) || 0;
             const payments = urlParams.get('payments') ? urlParams.get('payments').split(',') : [];
             const categories = urlParams.get('categories') ? urlParams.get('categories').split(',') : [];
             const startDate = urlParams.get('startDate') || "N/A";
             const endDate = urlParams.get('endDate') || "N/A";
-
-            // Debugging - log the values for start and end date
             console.log("Start Date:", startDate);
             console.log("End Date:", endDate);
-            
-            // Calculate total expenses and categorize
             let totalExpenses = 0;
             let categoryExpenses = {};
 
@@ -92,43 +83,27 @@
                     categoryExpenses[category] = (categoryExpenses[category] || 0) + payment;
                 }
             });
-
-            // Display the budget
             document.getElementById('budgetSummary').value = budget;
-
-            // Display total expenses
             document.getElementById('totalSummary').value = totalExpenses;
-
-            // Check if over budget
             const overBudget = totalExpenses > budget ? "Yes" : "No";
             document.getElementById('overBudgetSummary').value = overBudget;
-
-            // Display total by category
             let categorySummary = '';
             for (let category in categoryExpenses) {
                 categorySummary += `${category}: $${categoryExpenses[category]}<br>`;
             }
             document.getElementById('categorySummary').innerHTML = categorySummary || "No categories entered.";
-
-            // Display the earliest and latest dates in the dateRangeText field
             document.getElementById('dateRangeText').value = `${startDate} - ${endDate}`;
-
-            // Display over budget message
             const budgetMessage = document.getElementById('budgetMessage');
             const toastNotification = document.getElementById('toastNotification');
 
             if (totalExpenses > budget) {
                 budgetMessage.innerHTML = `You are above budget! Your expenses: $${totalExpenses}, Your budget: $${budget}. How could you?!`;
                 budgetMessage.style.color = 'red';
-
-                //notification
                 toastNotification.className = "toast show";
                 toastNotification.textContent = `Uh ohhh! You are over budget by $${(totalExpenses - budget).toFixed(2)}!`;
             } else {
                 budgetMessage.innerHTML = `You are within budget! Your expenses: $${totalExpenses}, Your budget: $${budget}. We love that!`;
                 budgetMessage.style.color = 'green';
-
-                //notification
                 toastNotification.className = "toast success show";
                 toastNotification.textContent = `YAY! You are within budget by $${(budget - totalExpenses).toFixed(2)}!`;
             }
