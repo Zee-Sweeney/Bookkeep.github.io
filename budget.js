@@ -40,7 +40,6 @@ document.getElementById('expenseTable').addEventListener('input', function(event
         updateTotalAmount();
     }
 });
-
 const params = new URLSearchParams(window.location.search);
         const budgets = params.get('budget');
 
