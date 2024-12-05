@@ -158,13 +158,13 @@
             var formattedEarliestDate = earliestDate ? earliestDate.toISOString().split('T')[0] : 'N/A';
             var formattedLatestDate = latestDate ? latestDate.toISOString().split('T')[0] : 'N/A';
 
-            // Create the query string
+            //query string
             var queryString = `budget=${budget}&payments=${payments.join(',')}&categories=${categories.join(',')}&startDate=${formattedEarliestDate}&endDate=${formattedLatestDate}`;
 
             // Redirect to summary.html with query parameters
             window.location.href = 'summary.html?' + queryString;
 
-            // Save the form data before redirecting
+            // Save the form data
             saveFormData();
         });
     </script>
