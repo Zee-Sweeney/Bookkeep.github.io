@@ -73,12 +73,10 @@
             console.log("End Date:", endDate);
             let totalExpenses = 0;
             let categoryExpenses = {};
-
             payments.forEach(function(payment, index) {
                 const category = categories[index];
                 payment = parseFloat(payment);
                 totalExpenses += payment;
-
                 if (category) {
                     categoryExpenses[category] = (categoryExpenses[category] || 0) + payment;
                 }
