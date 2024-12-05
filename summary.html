@@ -118,19 +118,17 @@
             const toastNotification = document.getElementById('toastNotification');
 
             if (totalExpenses > budget) {
-                // Inline message
                 budgetMessage.innerHTML = `You are above budget! Your expenses: $${totalExpenses}, Your budget: $${budget}. How could you?!`;
                 budgetMessage.style.color = 'red';
 
-                // Toast notification
+                //notification
                 toastNotification.className = "toast show";
                 toastNotification.textContent = `Uh ohhh! You are over budget by $${(totalExpenses - budget).toFixed(2)}!`;
             } else {
-                // Inline message
                 budgetMessage.innerHTML = `You are within budget! Your expenses: $${totalExpenses}, Your budget: $${budget}. We love that!`;
                 budgetMessage.style.color = 'green';
 
-                // Toast notification
+                //notification
                 toastNotification.className = "toast success show";
                 toastNotification.textContent = `YAY! You are within budget by $${(budget - totalExpenses).toFixed(2)}!`;
             }
