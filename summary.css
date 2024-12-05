@@ -33,13 +33,13 @@ h1 {
 }
 
 .summary-wrapper input[type="text"] {
-    width: 80%; /* Make inputs take up most of the width */
+    width: 80%;
     padding: 10px;
     margin-bottom: 15px;
     border: 2px solid #ddd; 
     border-radius: 5px;
     font-size: 16px;
-    text-align: center; /* Center the text inside input fields */
+    text-align: center;
 }
 
 .back-btn {
@@ -53,8 +53,8 @@ h1 {
     text-decoration: none; 
     cursor: pointer; 
     text-align: center; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow */
-    transition: transform 0.2s, background-color 0.3s; /* Add hover effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.3s;
     margin-top: 20px;
 }
 
@@ -104,7 +104,7 @@ h1 {
     width: 80%; 
     padding: 15px;
     background-color: white; 
-    color: black; /* Black text */
+    color: black;
     margin-bottom: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
