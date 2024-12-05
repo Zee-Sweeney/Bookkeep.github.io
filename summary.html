@@ -5,6 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Summary of Expenses</title>
     <link rel="stylesheet" href="summary.css">
+    <style>
+        /* Toast Notification Styles usually appears for 3-5 seconds*/
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: none; 
+            z-index: 1000;
+        }
+        .toast.success {
+            background-color: blue; /* Green for success */
+        }
+        .toast.show {
+            display: block;
+            animation: fadeInOut 5s forwards;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            10%, 90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(20px); }
+        }
+    </style>
 </head>
 <body>
     <div class="summary-wrapper">
@@ -34,6 +61,9 @@
         <a href="budget.html" class="back-btn">Back to Budget</a>
         <a href="login.html" class="logout-btn">Logout</a>
     </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toastNotification"></div>
 
     <script>
         window.onload = function() {
@@ -85,12 +115,24 @@
 
             // Display over budget message
             const budgetMessage = document.getElementById('budgetMessage');
+            const toastNotification = document.getElementById('toastNotification');
+
             if (totalExpenses > budget) {
+                // Inline message
                 budgetMessage.innerHTML = `You are above budget! Your expenses: $${totalExpenses}, Your budget: $${budget}. How could you?!`;
                 budgetMessage.style.color = 'red';
+
+                // Toast notification
+                toastNotification.className = "toast show";
+                toastNotification.textContent = `Uh ohhh! You are over budget by $${(totalExpenses - budget).toFixed(2)}!`;
             } else {
+                // Inline message
                 budgetMessage.innerHTML = `You are within budget! Your expenses: $${totalExpenses}, Your budget: $${budget}. We love that!`;
-                budgetMessage.style.color = 'white';
+                budgetMessage.style.color = 'green';
+
+                // Toast notification
+                toastNotification.className = "toast success show";
+                toastNotification.textContent = `YAY! You are within budget by $${(budget - totalExpenses).toFixed(2)}!`;
             }
         };
     </script>
