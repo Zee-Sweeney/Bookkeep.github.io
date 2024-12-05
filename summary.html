@@ -11,11 +11,11 @@
         <h1>Summary of Expenses</h1>
         <div>
             <label for="dateRangeText">Expense Date Range:</label>
-            <input type="text" id="dateRange" readonly>
+            <input type="text" id="dateRangeText" placeholder="Earliest - Latest Date" readonly>
         </div>
         <div>
             <label for="budgetSummary">Budget:</label>
-            <input type="text" id="budgetSummary" readonly>
+            <input type="text" id="budgetSummary" placeholder="Total budget" readonly>
         </div>
         
         <div>
@@ -24,16 +24,75 @@
         </div>
         <div>
             <label for="totalSummary">Total Expenses:</label>
-            <input type="text" id="totalSummary" readonly>
+            <input type="text" id="totalSummary" placeholder="Total expenses" readonly>
         </div>
         <div>
             <label for="overBudgetSummary">Am I over budget?</label>
-            <input type="text" id="overBudgetSummary"  readonly>
+            <input type="text" id="overBudgetSummary" placeholder="Yes/No" readonly>
         </div>
         <div id="budgetMessage"></div> 
         <a href="budget.html" class="back-btn">Back to Budget</a>
         <a href="login.html" class="logout-btn">Logout</a>
     </div>
-    <script src="budget.js"></script>
+
+    <script>
+        window.onload = function() {
+            // Get the URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const budget = parseFloat(urlParams.get('budget')) || 0;
+            const payments = urlParams.get('payments') ? urlParams.get('payments').split(',') : [];
+            const categories = urlParams.get('categories') ? urlParams.get('categories').split(',') : [];
+            const startDate = urlParams.get('startDate') || "N/A";
+            const endDate = urlParams.get('endDate') || "N/A";
+
+            // Debugging - log the values for start and end date
+            console.log("Start Date:", startDate);
+            console.log("End Date:", endDate);
+            
+            // Calculate total expenses and categorize
+            let totalExpenses = 0;
+            let categoryExpenses = {};
+
+            payments.forEach(function(payment, index) {
+                const category = categories[index];
+                payment = parseFloat(payment);
+                totalExpenses += payment;
+
+                if (category) {
+                    categoryExpenses[category] = (categoryExpenses[category] || 0) + payment;
+                }
+            });
+
+            // Display the budget
+            document.getElementById('budgetSummary').value = budget;
+
+            // Display total expenses
+            document.getElementById('totalSummary').value = totalExpenses;
+
+            // Check if over budget
+            const overBudget = totalExpenses > budget ? "Yes" : "No";
+            document.getElementById('overBudgetSummary').value = overBudget;
+
+            // Display total by category
+            let categorySummary = '';
+            for (let category in categoryExpenses) {
+                categorySummary += `${category}: $${categoryExpenses[category]}<br>`;
+            }
+            document.getElementById('categorySummary').innerHTML = categorySummary || "No categories entered.";
+
+            // Display the earliest and latest dates in the dateRangeText field
+            document.getElementById('dateRangeText').value = `${startDate} - ${endDate}`;
+
+            // Display over budget message
+            const budgetMessage = document.getElementById('budgetMessage');
+            if (totalExpenses > budget) {
+                budgetMessage.innerHTML = `You are above budget! Your expenses: $${totalExpenses}, Your budget: $${budget}. How could you?!`;
+                budgetMessage.style.color = 'red';
+            } else {
+                budgetMessage.innerHTML = `You are within budget! Your expenses: $${totalExpenses}, Your budget: $${budget}. We love that!`;
+                budgetMessage.style.color = 'white';
+            }
+        };
+    </script>
 </body>
 </html>
