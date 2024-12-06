@@ -37,4 +37,3 @@ document.addEventListener('DOMContentLoaded', function() {
             messageDiv.style.color = 'red';
         }
     });
-});
